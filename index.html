@@ -90,9 +90,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 }
 .rail nav a:hover{color:var(--ink);border-color:var(--accent);}
 
+/* CV sits slightly apart — it leaves the page rather than jumping down it */
+.nav-cv{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);}
+.nav-cv a{color:var(--accent);}
+
 @media (max-width:899px){
   .rail nav ul{display:flex;flex-wrap:wrap;gap:0 22px;}
   .rail nav li{margin-bottom:0;}
+  .nav-cv{margin-top:0;padding-top:0;border-top:none;}
 }
 
 /* ---------- right column ---------- */
@@ -195,6 +200,7 @@ section:last-child{margin-bottom:0;}
         <li><a href="#about">About</a></li>
         <li><a href="#writing">Writing</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li class="nav-cv"><a href="curriculum_vitae.pdf" target="_blank">CV </a></li>
       </ul>
     </nav>
   </header>
