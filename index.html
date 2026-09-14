@@ -4,9 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- EDIT: this is the tab title and what Google shows -->
 <title>Aanchal Batwara</title>
-<meta name="description" content="Aanchal Batwara — politics and government at Sciences Po Reims, business at University of California Berkeley Haas.">
+<meta name="description" content="Aanchal Batwara — Sciences Po Reims and the University of California Berkeley Haas School of Business.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,7 +65,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 }
 @media (min-width:900px){ .name{font-size:52px} }
 
-/* EDIT: the one line that says who you are */
 .standfirst{
   font-family:var(--serif);
   font-style:italic;
@@ -150,6 +148,9 @@ section:last-child{margin-bottom:0;}
 }
 .entry h3 a:hover{border-color:var(--accent);}
 
+/* writing titles set in the accent so the two pieces read as links */
+#writing .entry h3 a{color:var(--accent);}
+
 .entry p{
   margin:0;
   font-size:15.5px;
@@ -206,8 +207,7 @@ section:last-child{margin-bottom:0;}
   <header class="rail">
     <h1 class="name">Aanchal<br>Batwara</h1>
 
-    <!-- EDIT: one or two sentences. Say where you are and what you work on. -->
-    <p class="standfirst">Politics and government at Sciences Po Reims, then business at UC Berkeley Haas. I write about policy and the people it lands on.</p>
+    <p class="standfirst">Politics and government at Sciences Po Reims, then business at University of California Berkeley Haas.</p>
 
     <nav>
       <ul>
@@ -227,10 +227,8 @@ section:last-child{margin-bottom:0;}
     <section id="about">
       <h2 class="section-head">About</h2>
       <div class="prose">
-        <!-- EDIT: replace both paragraphs. Keep it short — two paragraphs is plenty.
-             Write what you actually care about, not a list of credentials. -->
         <p>I'm a first-year in the University of California Berkeley &times; Sciences Po dual degree program, studying Economics and Law in Reims before moving to Berkeley's Haas School of Business in 2028.</p>
-        <p>Write a second paragraph here about what pulls you in — the questions you keep coming back to, the work you've done, what you're hoping to do next.</p>
+        <p>I came to government from a STEM background, and engineering and AI are still what I read about for fun. I want to end up in tech policy, where the people writing the rules actually understand the systems they're regulating.</p>
       </div>
     </section>
 
@@ -242,13 +240,10 @@ section:last-child{margin-bottom:0;}
            upload the PDF to the repo, and point href at the filename. -->
 
       <article class="entry">
-        <!-- EDIT: the year this was written -->
         <div class="year">2026</div>
         <div>
           <h3><a href="no_precedent.pdf" target="_blank">No Precedent</a></h3>
-          <!-- If this was published somewhere, put the venue back in front:
-               <p><span class="where">Venue name</span> — the case for...</p> -->
-          <p>Building Island County's first youth court, after a summer spent reading four years of juvenile case files — and what a diversion program still can't repair.</p>
+          <p>Building Island County's first youth court, after a summer spent reading four years of juvenile case files &mdash; and what a diversion program still can't repair.</p>
         </div>
       </article>
 
@@ -267,10 +262,10 @@ section:last-child{margin-bottom:0;}
 
       <!-- To add a role: copy a whole <article> block and change the text. -->
       <article class="entry">
-        <div class="year">Sept.&nbsp;2026&ndash;present</div>
+        <div class="year">Sept.&nbsp;2026&ndash;2028</div>
         <div>
           <h3>Class President, MINAN 1A</h3>
-          <p><span class="where">Sciences Po, Reims</span> — elected by my cohort. One more line on what the role actually involves.</p>
+          <p><span class="where">Sciences Po, Reims</span> &mdash; elected to represent over 400 students to the administration on academics and student life.</p>
         </div>
       </article>
     </section>
