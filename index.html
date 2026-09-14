@@ -90,14 +90,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 }
 .rail nav a:hover{color:var(--ink);border-color:var(--accent);}
 
-/* CV sits slightly apart — it leaves the page rather than jumping down it */
-.nav-cv{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule);}
-.nav-cv a{color:var(--accent);}
-
 @media (max-width:899px){
   .rail nav ul{display:flex;flex-wrap:wrap;gap:0 22px;}
   .rail nav li{margin-bottom:0;}
-  .nav-cv{margin-top:0;padding-top:0;border-top:none;}
 }
 
 /* ---------- right column ---------- */
@@ -126,7 +121,7 @@ section:last-child{margin-bottom:0;}
 /* ---------- list rows: year in a gutter, then the entry ---------- */
 .entry{
   display:grid;
-  grid-template-columns:64px 1fr;
+  grid-template-columns:112px 1fr;
   gap:0 16px;
   padding:18px 0;
   border-bottom:1px solid var(--rule);
@@ -169,7 +164,8 @@ section:last-child{margin-bottom:0;}
 }
 
 /* ---------- contact ---------- */
-.links{list-style:none;margin:0;padding:0;}
+.links{list-style:none;margin:0 0 22px;padding:0;}
+.links:last-child{margin-bottom:0;}
 .links li{margin:0 0 10px;}
 .links a{
   text-decoration:none;
@@ -178,6 +174,24 @@ section:last-child{margin-bottom:0;}
   transition:border-color .15s ease;
 }
 .links a:hover{border-color:var(--accent);}
+
+/* addresses set in grey, under a red label */
+.emails a{color:var(--muted);}
+
+.sub-head{
+  font-family:var(--sans);
+  font-size:17px;
+  font-weight:500;
+  color:var(--accent);
+  margin:0 0 8px;
+}
+
+.cv-link{
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:1px solid var(--accent);
+  padding-bottom:2px;
+}
 
 @media (prefers-reduced-motion:reduce){
   *{transition:none !important;}
@@ -199,8 +213,9 @@ section:last-child{margin-bottom:0;}
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#writing">Writing</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#cv">Curriculum Vitae</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li class="nav-cv"><a href="curriculum_vitae.pdf" target="_blank">CV (PDF)</a></li>
       </ul>
     </nav>
   </header>
@@ -246,15 +261,41 @@ section:last-child{margin-bottom:0;}
       </article>
     </section>
 
+    <!-- ---------- LEADERSHIP ---------- -->
+    <section id="leadership">
+      <h2 class="section-head">Leadership</h2>
+
+      <!-- To add a role: copy a whole <article> block and change the text. -->
+      <article class="entry">
+        <div class="year">Sept.&nbsp;2026&ndash;present</div>
+        <div>
+          <h3>Class President, MINAN 1A</h3>
+          <p><span class="where">Sciences Po, Reims</span> — elected by my cohort. One more line on what the role actually involves.</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ---------- CV ---------- -->
+    <section id="cv">
+      <h2 class="section-head">Curriculum Vitae</h2>
+      <div class="prose">
+        <p><a class="cv-link" href="curriculum_vitae.pdf" target="_blank">Download Curriculum Vitae (PDF)</a></p>
+      </div>
+    </section>
+
     <!-- ---------- CONTACT ---------- -->
     <section id="contact">
       <h2 class="section-head">Contact</h2>
       <div class="prose">
         <p>Best reached by email. Happy to hear from anyone working on similar things.</p>
-        <ul class="links">
+        <h3 class="sub-head">Emails</h3>
+        <ul class="links emails">
           <li><a href="mailto:aanchal.batwara@sciencespo.fr">aanchal.batwara@sciencespo.fr</a></li>
           <li><a href="mailto:aanchal.batwara@berkeley.edu">aanchal.batwara@berkeley.edu</a></li>
-          <!-- EDIT: paste your LinkedIn URL here, or delete this line -->
+        </ul>
+
+        <ul class="links">
+          <!-- EDIT: paste your LinkedIn URL here, or delete this list -->
           <li><a href="https://www.linkedin.com/in/">LinkedIn</a></li>
         </ul>
       </div>
