@@ -55,6 +55,15 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .rail{position:sticky;top:0;height:100vh;padding:88px 0 40px;}
 }
 
+.portrait{
+  display:block;
+  width:104px;
+  height:104px;
+  object-fit:cover;
+  border-radius:2px;
+  margin:0 0 20px;
+}
+
 .name{
   font-family:var(--serif);
   font-weight:300;
@@ -236,6 +245,8 @@ section:last-child{margin-bottom:0;}
 
   <!-- ===================== LEFT RAIL ===================== -->
   <header class="rail">
+    <img class="portrait" src="portrait.jpg" alt="">
+
     <h1 class="name">Aanchal<br>Batwara</h1>
 
     <p class="standfirst">Economics and Law at Sciences Po Reims, then Business at University of California Berkeley Haas.</p>
@@ -260,7 +271,8 @@ section:last-child{margin-bottom:0;}
       <h2 class="section-head">About</h2>
       <div class="prose">
         <p>I'm a first-year in the University of California Berkeley &times; Sciences Po dual degree program, studying Economics and Law in Reims before moving to Berkeley's Haas School of Business in 2028.</p>
-        <p> I came to Sciences Po from a STEM background and work at the intersection of technology and policy. My goal after undergrad is to attend law school and work in international and tech policy.</p>
+        <p>I came to Sciences Po from a STEM background and work at the intersection of technology and policy. My goal after undergrad is to attend law school and work in international and tech policy.</p>
+      </div>
     </section>
 
     <!-- ---------- WRITING ---------- -->
