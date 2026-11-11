@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Writing — Aanchal Batwara</title>
+<meta name="description" content="Essays by Aanchal Batwara on juvenile justice, forensic evidence and the systems around them.">
+
+<!-- Browser tab icon. Swap favicon.png for any square image you upload. -->
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#F2F6F6;      /* cool near-white */
+  --ink:#13262A;        /* deep slate-teal */
+  --muted:#56686C;
+  --rule:#D2DEDE;
+  --accent:#0F6F78;     /* teal */
+  --tint:#E6F0F0;       /* card and hover fill */
+  --serif:"Newsreader",Georgia,serif;
+  --sans:"Karla","Helvetica Neue",Arial,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.6;
+}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- sticky top bar ---------- */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+}
+.topbar-inner{
+  max-width:820px;
+  margin:0 auto;
+  padding:14px 28px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:6px 28px;
+}
+.wordmark{
+  font-family:var(--serif);
+  font-size:19px;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.topbar nav ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:0 22px;
+}
+.topbar nav a{
+  font-size:15px;
+  color:var(--muted);
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  padding-bottom:1px;
+  transition:color .15s ease,border-color .15s ease;
+}
+.topbar nav a:hover{color:var(--ink);border-color:var(--accent);}
+
+/* ---------- page column ---------- */
+.page{
+  max-width:820px;
+  margin:0 auto;
+  padding:0 28px 110px;
+}
+
+/* ---------- hero (home) ---------- */
+.hero{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:28px;
+  padding:60px 0 24px;
+}
+.portrait{
+  width:132px;
+  height:132px;
+  flex:none;
+  object-fit:cover;
+  border-radius:4px;
+  display:block;
+}
+.hero-text{flex:1 1 300px;}
+.hero-name{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:46px;
+  line-height:1.03;
+  letter-spacing:-0.015em;
+  margin:0 0 10px;
+}
+.hero-tag{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:300;
+  font-size:19px;
+  line-height:1.4;
+  color:var(--muted);
+  margin:0 0 16px;
+  max-width:36ch;
+}
+.hero-links{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 20px;
+}
+.hero-links a{
+  font-size:15px;
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:1px solid var(--rule);
+  padding-bottom:2px;
+  transition:border-color .15s ease;
+}
+.hero-links a:hover{border-color:var(--accent);}
+
+.bio{max-width:64ch;padding:0 0 12px;}
+.bio p{margin:0 0 16px;}
+.bio p:last-child{margin-bottom:0;}
+
+/* ---------- affiliation logos ---------- */
+.affiliations{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px 34px;
+  margin:30px 0 0;
+}
+.affiliations img{display:block;width:auto;}
+.logo-berkeley{height:46px;}
+.logo-sciencespo{height:36px;}
+
+/* ---------- highlight cards ---------- */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:16px;
+  margin:34px 0 0;
+}
+.card{
+  display:block;
+  border:1px solid var(--rule);
+  border-radius:4px;
+  background:var(--tint);
+  padding:16px 18px 18px;
+  text-decoration:none;
+  transition:background-color .18s ease,border-color .18s ease;
+}
+.card:hover,
+.card:focus-visible{
+  background:#FFFFFF;
+  border-color:var(--accent);
+}
+.card:hover .card-title{text-decoration:underline;text-underline-offset:3px;}
+.card-label{
+  font-size:13px;
+  font-weight:700;
+  color:var(--accent);
+  margin:0 0 6px;
+}
+.card-title{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:400;
+  line-height:1.2;
+  margin:0 0 8px;
+}
+.card-meta{
+  font-size:13px;
+  color:var(--muted);
+  margin:0;
+}
+
+/* ---------- hero (interior pages) ---------- */
+.subhero{padding:56px 0 8px;max-width:64ch;}
+.page-title{
+  font-family:var(--serif);
+  font-weight:300;
+  font-size:40px;
+  line-height:1.06;
+  letter-spacing:-0.012em;
+  margin:0 0 12px;
+}
+.page-intro{margin:0;color:var(--muted);}
+.backlink{
+  display:inline-block;
+  font-size:15px;
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:1px solid var(--rule);
+  padding-bottom:2px;
+  margin-top:40px;
+  transition:border-color .15s ease;
+}
+.backlink:hover{border-color:var(--accent);}
+
+/* ---------- sections ---------- */
+section{padding:46px 0 0;scroll-margin-top:72px;}
+.section-head{
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.02em;
+  color:var(--accent);
+  margin:0 0 6px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--rule);
+}
+.section-note{
+  font-size:14px;
+  color:var(--muted);
+  margin:0 0 18px;
+}
+.section-head + .entry,
+.section-head + .prose{margin-top:20px;}
+
+.prose{max-width:64ch;}
+.prose p{margin:0 0 16px;}
+.prose p:last-child{margin-bottom:0;}
+
+/* ---------- entry rows ---------- */
+.entry{
+  display:grid;
+  grid-template-columns:112px 1fr;
+  gap:0 16px;
+  padding:18px 0;
+  border-bottom:1px solid var(--rule);
+}
+.year{
+  font-size:14px;
+  color:var(--muted);
+  padding-top:5px;
+  font-variant-numeric:tabular-nums;
+}
+.entry h3{
+  font-family:var(--serif);
+  font-weight:400;
+  font-size:21px;
+  line-height:1.25;
+  margin:0;
+}
+.entry h3 + p{margin-top:5px;}
+.entry h3 a{
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:1px solid var(--rule);
+  transition:border-color .15s ease;
+}
+.entry h3 a:hover{border-color:var(--accent);}
+.entry:has(h3 a){
+  transition:background-color .18s ease;
+  border-radius:3px;
+}
+.entry:has(h3 a):hover{background:var(--tint);}
+.entry:has(h3 a):hover h3 a{border-color:var(--accent);}
+.entry p{
+  margin:0;
+  font-size:15.5px;
+  color:var(--muted);
+  max-width:56ch;
+}
+@media (max-width:540px){
+  .entry{grid-template-columns:1fr;gap:3px;}
+  .year{padding-top:0;}
+}
+
+/* ---------- essay pages ---------- */
+.article{max-width:66ch;padding-top:6px;}
+.article p{
+  font-family:var(--serif);
+  font-size:19px;
+  line-height:1.74;
+  margin:0 0 20px;
+}
+.article p:last-child{margin-bottom:0;}
+.standfirst-meta{
+  font-size:14px;
+  color:var(--muted);
+  margin:0;
+}
+
+/* ---------- section heading with an "all" link ---------- */
+.head-row{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:12px 20px;
+  margin:0 0 6px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--rule);
+}
+.head-row .section-head{margin:0;padding:0;border:none;}
+.head-all{
+  font-size:14px;
+  color:var(--accent);
+  text-decoration:none;
+  white-space:nowrap;
+  border-bottom:1px solid transparent;
+  transition:border-color .15s ease;
+}
+.head-all:hover{border-color:var(--accent);}
+
+/* ---------- links out of a section ---------- */
+.more{margin:18px 0 0;font-size:15.5px;}
+.more a,
+.doc-link{
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:1px solid var(--accent);
+  padding-bottom:2px;
+}
+
+/* ---------- contact ---------- */
+.links{list-style:none;margin:0 0 20px;padding:0;}
+.links:last-child{margin-bottom:0;}
+.links li{margin:0 0 10px;}
+.links a{
+  text-decoration:none;
+  border-bottom:1px solid var(--rule);
+  padding-bottom:2px;
+  transition:border-color .15s ease;
+}
+.links a:hover{border-color:var(--accent);}
+.emails a{color:var(--muted);}
+.sub-head{
+  font-family:var(--sans);
+  font-size:17px;
+  font-weight:500;
+  color:var(--accent);
+  margin:0 0 8px;
+}
+
+@media (min-width:720px){
+  .hero-name{font-size:54px;}
+}
+/* the top bar wraps to two lines on narrow screens, so anchors need more clearance */
+@media (max-width:719px){
+  section{scroll-margin-top:104px;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none !important;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="index.html">Aanchal Batwara</a>
+    <nav>
+      <ul>
+        <li><a href="writing.html">Writing</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="index.html#cv">CV</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="subhero">
+    <h1 class="page-title">Writing</h1>
+    <p class="page-intro">Essays on juvenile justice, forensic evidence, and the systems built around them.</p>
+  </div>
+
+  <section id="essays">
+    <h2 class="section-head">Essays</h2>
+
+    <!-- To add a piece: copy a whole <article> block, paste it above the others,
+         and create a page for it modelled on no-precedent.html. -->
+
+    <article class="entry">
+      <div class="year">2026</div>
+      <div>
+        <h3><a href="no-precedent.html">No Precedent</a></h3>
+        <p>Building Island County's first youth court, after a summer spent reading four years of juvenile case files &mdash; and what a diversion program still can't repair.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div class="year">2026</div>
+      <div>
+        <h3><a href="legible-in-time.html">Legible in Time</a></h3>
+        <p>A 1984 murder reopened forty years later by DNA methods that didn't exist when the evidence was collected, and how much of justice we leave to luck.</p>
+      </div>
+    </article>
+  </section>
+
+  <a class="backlink" href="index.html">Back to the main page</a>
+
+</div>
+</body>
+</html>
