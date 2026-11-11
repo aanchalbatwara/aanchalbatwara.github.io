@@ -10,418 +10,153 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --paper:#E8EAE6;
-  --ink:#1B1F1D;
-  --muted:#5C635E;
-  --rule:#C9CCC5;
-  --accent:#6B2737;
-  --serif:"Newsreader",Georgia,serif;
-  --sans:"Karla","Helvetica Neue",Arial,sans-serif;
-}
-
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:var(--sans);
-  font-size:17px;
-  line-height:1.6;
-}
-
-a{color:inherit}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-
-/* ---------- overall two-column frame ---------- */
-.frame{
-  max-width:1080px;
-  margin:0 auto;
-  padding:0 28px;
-  display:grid;
-  gap:0 64px;
-  grid-template-columns:1fr;
-}
-@media (min-width:900px){
-  .frame{grid-template-columns:300px 1fr;}
-}
-
-/* ---------- left rail ---------- */
-.rail{padding:56px 0 0;}
-@media (min-width:900px){
-  .rail{position:sticky;top:0;height:100vh;padding:88px 0 40px;}
-}
-
-.portrait{
-  display:block;
-  width:160px;
-  height:160px;
-  object-fit:cover;
-  border-radius:2px;
-  margin:0 0 20px;
-}
-
-.name{
-  font-family:var(--serif);
-  font-weight:300;
-  font-size:44px;
-  line-height:1.05;
-  letter-spacing:-0.015em;
-  margin:0 0 18px;
-}
-@media (min-width:900px){ .name{font-size:52px} }
-
-.standfirst{
-  font-family:var(--serif);
-  font-style:italic;
-  font-weight:300;
-  font-size:19px;
-  line-height:1.45;
-  color:var(--muted);
-  margin:0 0 32px;
-  max-width:30ch;
-}
-
-.rail nav{border-top:1px solid var(--rule);padding-top:16px;}
-.rail nav ul{list-style:none;margin:0;padding:0;}
-.rail nav li{margin:0 0 6px;}
-.rail nav a{
-  text-decoration:none;
-  font-size:15px;
-  color:var(--muted);
-  border-bottom:1px solid transparent;
-  transition:color .15s ease,border-color .15s ease;
-}
-.rail nav a:hover{color:var(--ink);border-color:var(--accent);}
-
-@media (max-width:899px){
-  .rail nav ul{display:flex;flex-wrap:wrap;gap:0 22px;}
-  .rail nav li{margin-bottom:0;}
-}
-
-/* ---------- right column ---------- */
-.main{padding:40px 0 96px;}
-@media (min-width:900px){ .main{padding:88px 0 120px;} }
-
-section{margin:0 0 68px;}
-section:last-child{margin-bottom:0;}
-
-.section-head{
-  font-family:var(--sans);
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.02em;
-  color:var(--accent);
-  margin:0 0 20px;
-  padding-bottom:10px;
-  border-bottom:1px solid var(--rule);
-}
-
-.prose{max-width:62ch;}
-.prose p{margin:0 0 16px;}
-.prose p:last-child{margin-bottom:0;}
-.prose a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;}
-
-/* ---------- list rows: year in a gutter, then the entry ---------- */
-.entry{
-  display:grid;
-  grid-template-columns:112px 1fr;
-  gap:0 16px;
-  padding:18px 0;
-  border-bottom:1px solid var(--rule);
-  max-width:66ch;
-}
-.entry:first-of-type{padding-top:0;}
-
-.year{
-  font-size:14px;
-  color:var(--muted);
-  padding-top:4px;
-  font-variant-numeric:tabular-nums;
-}
-
-.entry h3{
-  font-family:var(--serif);
-  font-weight:400;
-  font-size:21px;
-  line-height:1.25;
-  margin:0 0 5px;
-}
-.entry h3 a{
-  text-decoration:none;
-  border-bottom:1px solid var(--rule);
-  transition:border-color .15s ease;
-}
-.entry h3 a:hover{border-color:var(--accent);}
-
-/* writing titles set in the accent so the two pieces read as links */
-#writing .entry h3 a{color:var(--accent);}
-
-.entry p{
-  margin:0;
-  font-size:15.5px;
-  color:var(--muted);
-  max-width:54ch;
-}
-.where{color:var(--accent);}
-
-@media (max-width:520px){
-  .entry{grid-template-columns:1fr;gap:4px;}
-  .year{padding-top:0;}
-}
-
-.caption{
-  font-size:14px;
-  color:var(--muted);
-  margin:10px 0 0;
-  max-width:54ch;
-}
-
-/* ---------- image grid ---------- */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
-  gap:18px;
-  max-width:640px;
-  margin:0;
-}
-.grid figure{margin:0;}
-.grid img{
-  display:block;
-  width:100%;
-  aspect-ratio:4/5;
-  object-fit:cover;
-  border:1px solid var(--rule);
-  background:var(--rule);
-}
-.grid figcaption{
-  font-size:13px;
-  color:var(--muted);
-  margin-top:7px;
-}
-
-/* ---------- contact ---------- */
-.links{list-style:none;margin:0 0 22px;padding:0;}
-.links:last-child{margin-bottom:0;}
-.links li{margin:0 0 10px;}
-.links a{
-  text-decoration:none;
-  border-bottom:1px solid var(--rule);
-  padding-bottom:2px;
-  transition:border-color .15s ease;
-}
-.links a:hover{border-color:var(--accent);}
-
-/* addresses set in grey, under a red label */
-.emails a{color:var(--muted);}
-
-.sub-head{
-  font-family:var(--sans);
-  font-size:17px;
-  font-weight:500;
-  color:var(--accent);
-  margin:0 0 8px;
-}
-
-.cv-link{
-  color:var(--accent);
-  text-decoration:none;
-  font-size:17px;
-  border-bottom:1px solid var(--accent);
-  padding-bottom:2px;
-}
-
-@media (prefers-reduced-motion:reduce){
-  *{transition:none !important;}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div class="frame">
 
-  <!-- ===================== LEFT RAIL ===================== -->
-  <header class="rail">
-    <img class="portrait" src="portrait.jpg" alt="">
-
-    <h1 class="name">Aanchal<br>Batwara</h1>
-
-    <p class="standfirst">Economics and Law at Sciences Po Reims, then Business at University of California Berkeley Haas.</p>
-
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="wordmark" href="#top">Aanchal Batwara</a>
     <nav>
       <ul>
-        <li><a href="#about">About</a></li>
         <li><a href="#writing">Writing</a></li>
         <li><a href="#leadership">Leadership</a></li>
-        <li><a href="#comms">Comms &amp; Design</a></li>
-        <li><a href="#cv">Curriculum Vitae</a></li>
+        <li><a href="#cv">CV</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-  </header>
+  </div>
+</div>
 
-  <!-- ===================== RIGHT COLUMN ===================== -->
-  <main class="main">
+<div class="page" id="top">
 
-    <!-- ---------- ABOUT ---------- -->
-    <section id="about">
-      <h2 class="section-head">About</h2>
-      <div class="prose">
-        <p>I'm a first-year in the University of California Berkeley &times; Sciences Po dual degree program, studying Economics and Law in Reims before moving to Berkeley's Haas School of Business in 2028.</p>
-        <p>I came to Sciences Po from a STEM background and work at the intersection of technology and policy. My goal after undergrad is to attend law school and work in international and tech policy.</p>
+  <!-- ===================== HERO ===================== -->
+  <div class="hero">
+    <img class="portrait" src="portrait.jpg" alt="">
+    <div class="hero-text">
+      <h1 class="hero-name">Aanchal Batwara</h1>
+      <p class="hero-tag">Economics and Law at Sciences Po Reims, then Business at UC Berkeley Haas.</p>
+      <ul class="hero-links">
+        <li><a href="mailto:aanchal.batwara@sciencespo.fr">Email</a></li>
+        <!-- EDIT: paste your LinkedIn URL, or delete this line -->
+        <li><a href="https://www.linkedin.com/in/">LinkedIn</a></li>
+        <li><a href="curriculum_vitae.pdf" target="_blank">CV</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="bio">
+    <p>I'm a first-year in the University of California Berkeley &times; Sciences Po dual degree program, studying Economics and Law in Reims before moving to Berkeley's Haas School of Business in 2028.</p>
+    <p>I came to Sciences Po from a STEM background and work at the intersection of technology and policy. My goal after undergrad is to attend law school and work in international and tech policy.</p>
+  </div>
+
+  <!-- ===================== HIGHLIGHTS ===================== -->
+  <!-- Three cards, newest first. Swap one out whenever something new lands. -->
+  <div class="cards">
+    <a class="card" href="legible_in_time (1).pdf" target="_blank">
+      <p class="card-label">Essay</p>
+      <h2 class="card-title">Legible in Time</h2>
+      <p class="card-meta">2026</p>
+    </a>
+
+    <a class="card" href="no_precedent (1).pdf" target="_blank">
+      <p class="card-label">Essay</p>
+      <h2 class="card-title">No Precedent</h2>
+      <p class="card-meta">2026</p>
+    </a>
+
+    <a class="card" href="sciences-po.html">
+      <p class="card-label">Now</p>
+      <h2 class="card-title">Class Representative, MINAN 1A</h2>
+      <p class="card-meta">Sciences Po Reims</p>
+    </a>
+  </div>
+
+  <!-- ===================== WRITING ===================== -->
+  <section id="writing">
+    <h2 class="section-head">Writing</h2>
+
+    <!-- To add a piece: copy a whole <article> block, paste it above the others,
+         upload the PDF to the repo, and point href at the filename. -->
+
+    <article class="entry">
+      <div class="year">2026</div>
+      <div>
+        <h3><a href="no_precedent (1).pdf" target="_blank">No Precedent</a></h3>
+        <p>Building Island County's first youth court, after a summer spent reading four years of juvenile case files &mdash; and what a diversion program still can't repair.</p>
       </div>
-    </section>
+    </article>
 
-    <!-- ---------- WRITING ---------- -->
-    <section id="writing">
-      <h2 class="section-head">Writing</h2>
-
-      <!-- To add a piece: copy a whole <article> block, paste it above the others,
-           upload the PDF to the repo, and point href at the filename. -->
-
-      <article class="entry">
-        <div class="year">2026</div>
-        <div>
-          <h3><a href="no_precedent (1).pdf" target="_blank">No Precedent</a></h3>
-          <p>Building Island County's first youth court, after a summer spent reading four years of juvenile case files&#59; and what a diversion program still can't repair.</p>
-        </div>
-      </article>
-
-      <article class="entry">
-        <div class="year">2026</div>
-        <div>
-          <h3><a href="legible_in_time (1).pdf" target="_blank">Legible in Time</a></h3>
-          <p>A 1984 murder reopened forty years later by DNA methods that didn't exist when the evidence was collected, and how much of justice we leave to luck.</p>
-        </div>
-      </article>
-    </section>
-
-    <!-- ---------- LEADERSHIP ---------- -->
-    <section id="leadership">
-      <h2 class="section-head">Leadership</h2>
- 
-      <!-- To add a role: copy a whole <article> block and change the text. -->
-      <article class="entry">
-        <div class="year">Sept.&nbsp;2026&ndash;2028</div>
-        <div>
-          <h3>Class Representative, MINAN 1A</h3>
-          <p><span class="where">Sciences Po, Reims</span>&colon; elected to represent over 400 students to the administration on academics and student life.</p>
-        </div>
-      </article>
- 
-      <article class="entry">
-        <div class="year">2026&ndash;27</div>
-        <div>
-          <h3>Head of Events, SP AI</h3>
-          <p><span class="where">Sciences Po, Reims</span></p>
-        </div>
-      </article>
-
-      <article class="entry">
-        <div class="year">2026&ndash;27</div>
-        <div>
-          <h3>Consultant & Communications, Junior Consulting</h3>
-          <p><span class="where">Sciences Po</span>&colon; the university's student-run consulting firm.</p>
-        </div>
-      </article>
-
-      <article class="entry">
-        <div class="year">2026&ndash;27</div>
-        <div>
-          <h3>Communications Pole, Amnesty International</h3>
-          <p><span class="where">Sciences Po, Reims</span></p>
-        </div>
-      </article>
-
-      <article class="entry">
-        <div class="year">2026&ndash;27</div>
-        <div>
-          <h3>Member, Watchdog Reims</h3>
-          <p><span class="where">Sciences Po, Reims</span>&colon; policy journal on U.S. politics.</p>
-        </div>
-      </article>
-
-      <article class="entry">
-        <div class="year">2026&ndash;27</div>
-        <div>
-          <h3>Member, AI Safety Hub</h3>
-        </div>
-      </article>
- 
-      <article class="entry">
-        <div class="year">2026&ndash;27</div>
-        <div>
-          <h3>Partnerships Pole, AIRA</h3>
-          <p><span class="where">Asians in Reims Association, Sciences Po</span> </p>
-        </div>
-      </article>
- 
-      <article class="entry">
-        <div class="year">2026&ndash;27</div>
-        <div>
-          <h3>Creative Writing Writer, The Sundial Press</h3>
-          <p><span class="where">Sciences Po, Reims</span></p>
-        </div>
-      </article>
-    </section>
- 
-    <!-- ---------- COMMS ---------- -->
-    <section id="comms">
-      <h2 class="section-head">Comms &amp; Design</h2>
-      <div class="prose">
-        <p>Campaign graphics, event branding, and social media for student government, the AWSL Advocacy Summit, and class campaigns at Sciences Po.</p>
+    <article class="entry">
+      <div class="year">2026</div>
+      <div>
+        <h3><a href="legible_in_time (1).pdf" target="_blank">Legible in Time</a></h3>
+        <p>A 1984 murder reopened forty years later by DNA methods that didn't exist when the evidence was collected, and how much of justice we leave to luck.</p>
       </div>
+    </article>
+  </section>
 
-      <!-- EDIT: export a few pieces as JPGs, upload them to the repo,
-           and match the filenames here. Add or delete <figure> blocks as needed. -->
-      <div class="grid">
-        <figure>
-          <img src="comms-1.jpg" alt="Student representative campaign graphic">
-          <figcaption>Student rep campaign, Sciences Po</figcaption>
-        </figure>
-        <figure>
-          <img src="comms-2.jpg" alt="AWSL Educational Advocacy Summit event identity">
-          <figcaption>AWSL Advocacy Summit</figcaption>
-        </figure>
-        <figure>
-          <img src="comms-3.jpg" alt="Outdoor movie night event graphic">
-          <figcaption>Class events, Tesla STEM</figcaption>
-        </figure>
+  <!-- ===================== LEADERSHIP ===================== -->
+  <!-- Only the three strongest roles live here. Everything else is on
+       sciences-po.html, linked at the bottom of this section. -->
+  <section id="leadership">
+    <h2 class="section-head">Leadership</h2>
+    <p class="section-note">All at Sciences Po Reims.</p>
+
+    <article class="entry">
+      <div class="year">Sept.&nbsp;2026&ndash;2028</div>
+      <div>
+        <h3>Class Representative, MINAN 1A</h3>
+        <p>Elected to represent over 400 students to the administration on academics and student life.</p>
       </div>
+    </article>
 
-      <p class="caption"><a class="cv-link" href="my_comms_portfolio.pdf" target="_blank">Full portfolio (PDF)</a></p>
-    </section>
-
-    <!-- ---------- CV ---------- -->
-    <section id="cv">
-      <h2 class="section-head">Curriculum Vitae</h2>
-      <div class="prose">
-        <p><a class="cv-link" href="curriculum_vitae.pdf" target="_blank">Download Curriculum Vitae (PDF)</a></p>
+    <article class="entry">
+      <div class="year">2026&ndash;27</div>
+      <div>
+        <h3>Consultant &amp; Communications, Junior Consulting</h3>
+        <p>The university's student-run consulting firm.</p>
       </div>
-    </section>
+    </article>
 
-    <!-- ---------- CONTACT ---------- -->
-    <section id="contact">
-      <h2 class="section-head">Contact</h2>
-      <div class="prose">
-        <p>Best reached by email. Happy to hear from anyone working on similar things.</p>
-        <h3 class="sub-head">Emails</h3>
-        <ul class="links emails">
-          <li><a href="mailto:aanchal.batwara@sciencespo.fr">aanchal.batwara@sciencespo.fr</a></li>
-          <li><a href="mailto:aanchal.batwara@berkeley.edu">aanchal.batwara@berkeley.edu</a></li>
-        </ul>
-
-        <ul class="links">
-          <!-- EDIT: paste your LinkedIn URL here, or delete this list -->
-          <li><a href="https://www.linkedin.com/in/">LinkedIn</a></li>
-        </ul>
+    <article class="entry">
+      <div class="year">2026&ndash;27</div>
+      <div>
+        <h3>Head of Events, SP AI</h3>
+        <p>Programming for the campus AI association.</p>
       </div>
-    </section>
+    </article>
 
-  </main>
+    <p class="more"><a href="sciences-po.html">All Sciences Po roles and associations</a></p>
+  </section>
+
+  <!-- ===================== CV ===================== -->
+  <section id="cv">
+    <h2 class="section-head">Curriculum Vitae</h2>
+    <div class="prose">
+      <p><a class="doc-link" href="curriculum_vitae.pdf" target="_blank">Download Curriculum Vitae (PDF)</a></p>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <h2 class="section-head">Contact</h2>
+    <div class="prose">
+      <p>Best reached by email. Happy to hear from anyone working on similar things.</p>
+      <h3 class="sub-head">Emails</h3>
+      <ul class="links emails">
+        <li><a href="mailto:aanchal.batwara@sciencespo.fr">aanchal.batwara@sciencespo.fr</a></li>
+        <li><a href="mailto:aanchal.batwara@berkeley.edu">aanchal.batwara@berkeley.edu</a></li>
+      </ul>
+
+      <ul class="links">
+        <!-- EDIT: paste your LinkedIn URL here, or delete this list -->
+        <li><a href="https://www.linkedin.com/in/">LinkedIn</a></li>
+      </ul>
+    </div>
+  </section>
+
 </div>
 </body>
 </html>
