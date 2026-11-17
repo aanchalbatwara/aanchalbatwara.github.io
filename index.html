@@ -328,26 +328,6 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 }
 .head-all:hover{border-color:var(--accent);}
 
-/* ---------- embedded PDF ---------- */
-.pdf-frame{
-  display:block;
-  width:100%;
-  aspect-ratio:8.5/11;
-  border:1px solid var(--rule);
-  border-radius:4px;
-  background:#FFFFFF;
-  margin:0 0 14px;
-}
-/* a full-page PDF viewer is unusable on a phone; offer the link instead */
-@media (max-width:640px){
-  .pdf-frame{display:none;}
-}
-.pdf-note{
-  font-size:14px;
-  color:var(--muted);
-  margin:8px 0 0;
-}
-
 /* ---------- links out of a section ---------- */
 .more{margin:18px 0 0;font-size:15.5px;}
 .more a,
@@ -528,9 +508,6 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
   <!-- ===================== RESUME ===================== -->
   <section id="resume">
     <h2 class="section-head">Resume</h2>
-
-    <!-- The PDF renders inline here. Replace resume.pdf in the repo to update it. -->
-    <iframe class="pdf-frame" src="resume.pdf#toolbar=0&amp;navpanes=0&amp;scrollbar=0&amp;view=FitH" title="Aanchal Batwara resume" loading="lazy"></iframe>
 
     <div class="prose">
       <p><a class="doc-link" href="resume.pdf" target="_blank">Open resume in a new tab</a></p>
