@@ -22,6 +22,7 @@
   --rule:#D2DEDE;
   --accent:#0F6F78;     /* teal */
   --tint:#E6F0F0;       /* card and hover fill */
+  --mail:#C13A2E;       /* envelope icon */
   --serif:"Newsreader",Georgia,serif;
   --sans:"Karla","Helvetica Neue",Arial,sans-serif;
 }
@@ -132,6 +133,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   gap:8px 20px;
 }
 .hero-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
   font-size:15px;
   white-space:nowrap;
   color:var(--accent);
@@ -141,6 +145,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   transition:border-color .15s ease;
 }
 .hero-links a:hover{border-color:var(--accent);}
+.hero-links svg{width:15px;height:15px;flex:none;}
+.mail-icon{stroke:var(--mail);}
+.hero-links img.icon{width:15px;height:15px;flex:none;display:block;}
 
 .bio{max-width:64ch;padding:0 0 12px;}
 .bio p{margin:0 0 16px;}
@@ -161,7 +168,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 /* ---------- highlight cards ---------- */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:16px;
   margin:34px 0 0;
 }
@@ -342,6 +349,25 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 .source a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule);}
 .source a:hover{border-color:var(--accent);}
 
+/* ---------- media page thumbnails ---------- */
+#press .entry,
+#video .entry{grid-template-columns:172px 1fr;}
+.media-thumb{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  background:var(--tint);
+  margin:0 0 9px;
+}
+@media (max-width:540px){
+  #press .entry,
+  #video .entry{grid-template-columns:1fr;}
+  .media-thumb{max-width:260px;}
+}
+
 /* ---------- links out of a section ---------- */
 .more{margin:18px 0 0;font-size:15.5px;}
 .more a,
@@ -430,10 +456,19 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
     <article class="entry">
       <div class="year">2026&ndash;27</div>
       <div>
-        <h3><a href="https://aanchalbatwara.github.io/juniorconsulting" target="_blank" rel="noopener">Consultant &amp; Communications, Junior Consulting</a></h3>
+        <h3><a href="https://junior-consulting-sciencespo.com/?lang=en" target="_blank" rel="noopener">Consultant &amp; Communications, Junior Consulting</a></h3>
         <p>The university's student-run consulting firm.</p>
       </div>
     </article>
+    <article class="entry">
+      <div class="year">2026&ndash;27</div>
+      <div>
+        <h3>Partnerships, Renard Capital Fund</h3>
+        <!-- PLACEHOLDER description - replace with what you actually do. -->
+        <p>Student-run investment fund. I work on the partnerships side.</p>
+      </div>
+    </article>
+
     <article class="entry">
       <div class="year">2026&ndash;27</div>
       <div>
@@ -453,21 +488,6 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
     <article class="entry">
       <div class="year">2026&ndash;27</div>
       <div>
-        <h3>Communications Pole, Amnesty International</h3>
-      </div>
-    </article>
-
-    <article class="entry">
-      <div class="year">2026&ndash;27</div>
-      <div>
-        <h3>Partnerships Pole, AIRA</h3>
-        <p>Asians in Reims Association.</p>
-      </div>
-    </article>
-
-    <article class="entry">
-      <div class="year">2026&ndash;27</div>
-      <div>
         <h3><a href="https://www.sundialpress.co" target="_blank" rel="noopener">Foreign Affairs Writer, The Sundial Press</a></h3>
         <p>The campus student newspaper.</p>
       </div>
@@ -476,7 +496,7 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
     <article class="entry">
       <div class="year">2026&ndash;27</div>
       <div>
-        <h3>Research &amp; Editing, Watchdog Reims</h3>
+        <h3><a href="https://watchdogreims.substack.com/" target="_blank" rel="noopener">Research &amp; Editing, Watchdog Reims</a></h3>
         <p>Policy journal on U.S. politics.</p>
       </div>
     </article>
