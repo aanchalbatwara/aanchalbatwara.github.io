@@ -22,6 +22,7 @@
   --rule:#D2DEDE;
   --accent:#0F6F78;     /* teal */
   --tint:#E6F0F0;       /* card and hover fill */
+  --mail:#C13A2E;       /* envelope icon */
   --serif:"Newsreader",Georgia,serif;
   --sans:"Karla","Helvetica Neue",Arial,sans-serif;
 }
@@ -132,6 +133,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   gap:8px 20px;
 }
 .hero-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
   font-size:15px;
   white-space:nowrap;
   color:var(--accent);
@@ -141,6 +145,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   transition:border-color .15s ease;
 }
 .hero-links a:hover{border-color:var(--accent);}
+.hero-links svg{width:15px;height:15px;flex:none;}
+.mail-icon{stroke:var(--mail);}
+.hero-links img.icon{width:15px;height:15px;flex:none;display:block;}
 
 .bio{max-width:64ch;padding:0 0 12px;}
 .bio p{margin:0 0 16px;}
@@ -161,7 +168,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 /* ---------- highlight cards ---------- */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:16px;
   margin:34px 0 0;
 }
@@ -342,6 +349,25 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 .source a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule);}
 .source a:hover{border-color:var(--accent);}
 
+/* ---------- media page thumbnails ---------- */
+#press .entry,
+#video .entry{grid-template-columns:172px 1fr;}
+.media-thumb{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  background:var(--tint);
+  margin:0 0 9px;
+}
+@media (max-width:540px){
+  #press .entry,
+  #video .entry{grid-template-columns:1fr;}
+  .media-thumb{max-width:260px;}
+}
+
 /* ---------- links out of a section ---------- */
 .more{margin:18px 0 0;font-size:15.5px;}
 .more a,
@@ -411,9 +437,9 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
       <h1 class="hero-name">Aanchal Batwara</h1>
       <p class="hero-tag">Economics and Law at Sciences Po Reims, then Business &amp; Computer Science at UC Berkeley Haas.</p>
       <ul class="hero-links">
-        <li><a href="mailto:aanchal.batwara@sciencespo.fr">aanchal.batwara@sciencespo.fr</a></li>
-        <li><a href="mailto:aanchal.batwara@berkeley.edu">aanchal.batwara@berkeley.edu</a></li>
-        <li><a href="https://www.linkedin.com/in/aanchalbatwara" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:aanchal.batwara@sciencespo.fr"><svg class="mail-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="1.2"/><path d="m2.2 4.6 5.8 4.3 5.8-4.3"/></svg>aanchal.batwara@sciencespo.fr</a></li>
+        <li><a href="mailto:aanchal.batwara@berkeley.edu"><svg class="mail-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="1.2"/><path d="m2.2 4.6 5.8 4.3 5.8-4.3"/></svg>aanchal.batwara@berkeley.edu</a></li>
+        <li><a href="https://www.linkedin.com/in/aanchalbatwara" target="_blank" rel="noopener"><img class="icon" src="data:image/png;base64,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" alt="">LinkedIn</a></li>
         <li><a href="resume.pdf" target="_blank">Resume</a></li>
       </ul>
     </div>
@@ -433,16 +459,22 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
   <!-- ===================== HIGHLIGHTS ===================== -->
   <!-- Three cards, newest first. Swap one out whenever something new lands. -->
   <div class="cards">
+    <a class="card" href="eigenism.html">
+      <p class="card-label">Note</p>
+      <h2 class="card-title">Eigenism</h2>
+      <p class="card-meta">November 2026</p>
+    </a>
+
+    <a class="card" href="https://www.lwsd.org/services/communications/news-and-stories/news-details/~board/high-schools/post/tesla-stem-high-school-student-leads-statewide-civic-education-effort" target="_blank" rel="noopener">
+      <p class="card-label">Press</p>
+      <h2 class="card-title">Leading a statewide civic education effort</h2>
+      <p class="card-meta">Lake Washington School District, March 2026</p>
+    </a>
+
     <a class="card" href="legible-in-time.html">
       <p class="card-label">Essay</p>
       <h2 class="card-title">Legible in Time</h2>
       <p class="card-meta">January 2026</p>
-    </a>
-
-    <a class="card" href="no-precedent.html">
-      <p class="card-label">Essay</p>
-      <h2 class="card-title">No Precedent</h2>
-      <p class="card-meta">October 2025</p>
     </a>
 
     <a class="card" href="leadership.html">
