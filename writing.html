@@ -22,6 +22,7 @@
   --rule:#D2DEDE;
   --accent:#0F6F78;     /* teal */
   --tint:#E6F0F0;       /* card and hover fill */
+  --mail:#C13A2E;       /* envelope icon */
   --serif:"Newsreader",Georgia,serif;
   --sans:"Karla","Helvetica Neue",Arial,sans-serif;
 }
@@ -132,7 +133,11 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   gap:8px 20px;
 }
 .hero-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
   font-size:15px;
+  white-space:nowrap;
   color:var(--accent);
   text-decoration:none;
   border-bottom:1px solid var(--rule);
@@ -140,6 +145,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   transition:border-color .15s ease;
 }
 .hero-links a:hover{border-color:var(--accent);}
+.hero-links svg{width:15px;height:15px;flex:none;}
+.mail-icon{stroke:var(--mail);}
+.hero-links img.icon{width:15px;height:15px;flex:none;display:block;}
 
 .bio{max-width:64ch;padding:0 0 12px;}
 .bio p{margin:0 0 16px;}
@@ -280,6 +288,7 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 }
 .entry:has(h3 a):hover{background:var(--tint);}
 .entry:has(h3 a):hover h3 a{border-color:var(--accent);}
+.where{color:var(--accent);}
 .entry p{
   margin:0;
   font-size:15.5px;
@@ -340,6 +349,25 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 .source a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule);}
 .source a:hover{border-color:var(--accent);}
 
+/* ---------- media page thumbnails ---------- */
+#press .entry,
+#video .entry{grid-template-columns:172px 1fr;}
+.media-thumb{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  background:var(--tint);
+  margin:0 0 9px;
+}
+@media (max-width:540px){
+  #press .entry,
+  #video .entry{grid-template-columns:1fr;}
+  .media-thumb{max-width:260px;}
+}
+
 /* ---------- links out of a section ---------- */
 .more{margin:18px 0 0;font-size:15.5px;}
 .more a,
@@ -393,8 +421,8 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
       <ul>
         <li><a href="writing.html">Writing</a></li>
         <li><a href="leadership.html">Leadership</a></li>
-        <li><a href="index.html#resume">Resume</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="resume.pdf" target="_blank">Resume</a></li>
       </ul>
     </nav>
   </div>
@@ -404,7 +432,7 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 
   <div class="subhero">
     <h1 class="page-title">Writing</h1>
-    <p class="page-intro">Essays on juvenile justice and forensic evidence, and notes on what I'm reading in AI safety and governance.</p>
+    <p class="page-intro">Essays and shorter notes.</p>
   </div>
 
   <section id="essays">
@@ -432,7 +460,7 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 
   <section id="notes">
     <h2 class="section-head">Notes</h2>
-    <p class="section-note">Shorter pieces on papers I'm reading.</p>
+    <p class="section-note">Things I'm reading in AI safety.</p>
 
     <!-- To add a note: copy this <article> block, paste it above the others,
          and create a page for it modelled on eigenism.html. -->
