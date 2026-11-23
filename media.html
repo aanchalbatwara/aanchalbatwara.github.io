@@ -342,6 +342,25 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 .source a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule);}
 .source a:hover{border-color:var(--accent);}
 
+/* ---------- media page thumbnails ---------- */
+#press .entry,
+#video .entry{grid-template-columns:172px 1fr;}
+.media-thumb{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  background:var(--tint);
+  margin:0 0 9px;
+}
+@media (max-width:540px){
+  #press .entry,
+  #video .entry{grid-template-columns:1fr;}
+  .media-thumb{max-width:260px;}
+}
+
 /* ---------- links out of a section ---------- */
 .more{margin:18px 0 0;font-size:15.5px;}
 .more a,
@@ -400,27 +419,70 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
       </ul>
     </nav>
   </div>
-</div>
-
-
-<div class="page">
+</div><div class="page">
 
   <div class="subhero">
     <h1 class="page-title">Media</h1>
     <p class="page-intro">Press coverage and video.</p>
   </div>
 
+  <!-- To add an item: copy a whole <article> block, paste it above the others,
+       and change the date, link, headline, outlet and description.
+
+       To give an item a picture, add this line directly above its <div class="year">:
+         <img class="media-thumb" src="media-1.jpg" alt="">
+       and upload media-1.jpg to the repo. Items without one just show the date. -->
+
   <section id="press">
     <h2 class="section-head">Press</h2>
 
-    <!-- To add a piece: copy a whole <article> block and change the text.
-         Newest at the top. -->
-
     <article class="entry">
-      <div class="year">Nov.&nbsp;2026</div>
+      <div>
+        <div class="year">Nov.&nbsp;2026</div>
+      </div>
       <div>
         <h3><a href="https://www.sundialpress.co/2026/11/14/postponement-of-1a-exam-leads-to-day-of-chaos-on-campus/" target="_blank" rel="noopener">Postponement of 1A exam leads to day of chaos on campus</a></h3>
-        <p><span class="where">The Sundial Press</span> &mdash; coverage of the exam postponement and the student response, quoting me as class representative.</p>
+        <p><span class="where">The Sundial Press</span> &mdash; Co-led negotiations with campus administration on behalf of the 1A cohort after a final exam was postponed the day before it was due. Over several days, turned a day of chaos into an agreement both sides accepted: a new exam date, a guaranteed makeup session, and another course's exam moved to January to ease the workload.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div>
+        <div class="year">2026</div>
+      </div>
+      <div>
+        <h3><a href="https://www.lwsd.org/services/communications/news-and-stories/news-details/~board/high-schools/post/tesla-stem-high-school-student-leads-statewide-civic-education-effort" target="_blank" rel="noopener">Tesla STEM High School student leads statewide civic education effort</a></h3>
+        <p><span class="where">Lake Washington School District</span> &mdash; On my work as student director of the 2026 Educational Advocacy Summit, a statewide, student-led event organized through the Association of Washington Student Leaders.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div>
+        <div class="year">2026</div>
+      </div>
+      <div>
+        <h3><a href="https://lwptsa.net/2026/2026-scholarship-reception/" target="_blank" rel="noopener">2026 Scholarship Reception</a></h3>
+        <p><span class="where">Lake Washington PTSA Council 2.8</span> &mdash; Received the Eastlake Merit Scholarship from the Lake Washington PTSA Council.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div>
+        <div class="year">Feb.&nbsp;2026</div>
+      </div>
+      <div>
+        <h3><a href="https://www.whidbeynewstimes.com/2026/02/27/whidbey-teens-join-in-civics-summit/" target="_blank" rel="noopener">Whidbey teens join in civics summit</a></h3>
+        <p><span class="where">Whidbey News-Times</span> &mdash; Coverage of the 2026 Educational Advocacy Summit, which I led as AWSL's Advocacy and Policy Chair.</p>
+      </div>
+    </article>
+
+    <article class="entry">
+      <div>
+        <div class="year">Sept.&nbsp;2025</div>
+      </div>
+      <div>
+        <h3><a href="https://www.southwhidbeyrecord.com/2025/09/26/student-works-to-bring-youth-court-to-island/" target="_blank" rel="noopener">Student works to bring youth court to island</a></h3>
+        <p><span class="where">South Whidbey Record</span> &mdash; Coverage of the campaign to establish Island County's first youth court.</p>
       </div>
     </article>
   </section>
@@ -428,14 +490,24 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
   <section id="video">
     <h2 class="section-head">Video</h2>
 
-    <!-- EDIT: paste the public link for each clip in the href, change the title
-         and the one-line description, then copy the block for the next one. -->
+    <article class="entry">
+      <div>
+        <img class="media-thumb" src="https://img.youtube.com/vi/gYgIquBWyck/hqdefault.jpg" alt="">
+        <div class="year">June&nbsp;2026</div>
+      </div>
+      <div>
+        <h3><a href="https://www.youtube.com/watch?v=gYgIquBWyck" target="_blank" rel="noopener">Shine Bright Like a Diamond</a></h3>
+        <p><span class="where">YouTube</span> &mdash; Student speaker at the 11th Commencement Ceremony of Nikola Tesla STEM High School.</p>
+      </div>
+    </article>
 
     <article class="entry">
-      <div class="year">2026</div>
       <div>
-        <h3><a href="#" target="_blank" rel="noopener">Title of the clip</a></h3>
-        <p><span class="where">Where it was posted</span> &mdash; one line on what it covers.</p>
+        <div class="year">Feb.&nbsp;2024</div>
+      </div>
+      <div>
+        <h3><a href="https://tvw.org/video/on-the-issues-law-enforcement-staffing-concerns-2024021450/" target="_blank" rel="noopener">On The Issues: Law Enforcement &mdash; Staffing Concerns</a></h3>
+        <p><span class="where">TVW</span></p>
       </div>
     </article>
   </section>
