@@ -8,8 +8,7 @@
 <meta name="description" content="Building Island County's first youth court, after a summer spent reading four years of juvenile case files — and what a diversion program still can't repair.">
 
 <!-- Browser tab icon. Swap favicon.png for any square image you upload. -->
-<link rel="icon" href="favicon.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="favicon.png?v=2">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +22,7 @@
   --rule:#D2DEDE;
   --accent:#0F6F78;     /* teal */
   --tint:#E6F0F0;       /* card and hover fill */
+  --mail:#C13A2E;       /* envelope icon */
   --serif:"Newsreader",Georgia,serif;
   --sans:"Karla","Helvetica Neue",Arial,sans-serif;
 }
@@ -133,7 +133,11 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   gap:8px 20px;
 }
 .hero-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
   font-size:15px;
+  white-space:nowrap;
   color:var(--accent);
   text-decoration:none;
   border-bottom:1px solid var(--rule);
@@ -141,6 +145,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   transition:border-color .15s ease;
 }
 .hero-links a:hover{border-color:var(--accent);}
+.hero-links svg{width:15px;height:15px;flex:none;}
+.mail-icon{stroke:var(--mail);}
+.hero-links img.icon{width:15px;height:15px;flex:none;display:block;}
 
 .bio{max-width:64ch;padding:0 0 12px;}
 .bio p{margin:0 0 16px;}
@@ -161,7 +168,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 /* ---------- highlight cards ---------- */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:16px;
   margin:34px 0 0;
 }
@@ -281,6 +288,7 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 }
 .entry:has(h3 a):hover{background:var(--tint);}
 .entry:has(h3 a):hover h3 a{border-color:var(--accent);}
+.where{color:var(--accent);}
 .entry p{
   margin:0;
   font-size:15.5px;
@@ -327,6 +335,38 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
   transition:border-color .15s ease;
 }
 .head-all:hover{border-color:var(--accent);}
+
+/* ---------- blog post source line ---------- */
+.source{
+  font-family:var(--sans);
+  font-size:14.5px;
+  line-height:1.55;
+  color:var(--muted);
+  margin:0 0 26px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--rule);
+}
+.source a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--rule);}
+.source a:hover{border-color:var(--accent);}
+
+/* ---------- media page thumbnails ---------- */
+#press .entry,
+#video .entry{grid-template-columns:172px 1fr;}
+.media-thumb{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  background:var(--tint);
+  margin:0 0 9px;
+}
+@media (max-width:540px){
+  #press .entry,
+  #video .entry{grid-template-columns:1fr;}
+  .media-thumb{max-width:260px;}
+}
 
 /* ---------- links out of a section ---------- */
 .more{margin:18px 0 0;font-size:15.5px;}
@@ -381,8 +421,8 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
       <ul>
         <li><a href="writing.html">Writing</a></li>
         <li><a href="leadership.html">Leadership</a></li>
-        <li><a href="index.html#resume">Resume</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="resume.pdf" target="_blank">Resume</a></li>
       </ul>
     </nav>
   </div>
@@ -392,7 +432,7 @@ section{padding:46px 0 0;scroll-margin-top:72px;}
 
   <div class="subhero">
     <h1 class="page-title">No Precedent</h1>
-    <p class="standfirst-meta">2026 &middot; 640 words</p>
+    <p class="standfirst-meta">October 2025 &middot; 640 words</p>
   </div>
 
   <article class="article">
